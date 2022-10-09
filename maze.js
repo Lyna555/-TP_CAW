@@ -8,6 +8,7 @@ var i = 0;
 debut.addEventListener("mouseover", function () {
   debut.style.background = "#eeeeee";
   document.getElementById("status").innerHTML = "Glissez la souris de S vers E sans toucher les bordures";
+
   while (i < boundaries.length) {
     boundaries[i].addEventListener("mouseover", function () {
       for (var j = 0; j < boundaries.length; j++) {
@@ -21,15 +22,14 @@ debut.addEventListener("mouseover", function () {
 });
 
 fin.addEventListener("mouseover", function () {
-  if (document.getElementById("status").innerHTML != "Vous avez Perdue!") {
-    document.getElementById("status").innerHTML = "Vous avez gagne!";
-    fin.style.background = "#eeeeee";
-    for (var i = 0; i < boundaries.length; i++) {
-      boundaries[i].style.background = "#88ff88";
-    }
-    alert("Congratulation!")
+  document.getElementById("status").innerHTML = "Vous avez gagne!";
+  fin.style.background = "#eeeeee";
+  for (var i = 0; i < boundaries.length; i++) {
+    boundaries[i].style.background = "#88ff88";
   }
+  alert("Congratulation!")
 });
+
 
 refair.addEventListener("click", function () {
   document.getElementById("status").innerHTML = 'Glissez la souris de "S" vers "E" sans toucher les bordures';
