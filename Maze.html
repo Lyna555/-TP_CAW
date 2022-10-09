@@ -1,14 +1,14 @@
 <head>
 	<title>Maze!</title>
-	
+
 	<link href="maze.css" type="text/css" rel="stylesheet" />
-	
+
 	<script src="maze.js" type="text/javascript" defer></script>
 </head>
 
 <body>
-	<h2 id="status">Move your mouse over the "S" to begin.</h2>
-	
+	<h2 id="status">Glissez la souris de "S" vers "E" sans toucher les bordures</h2>
+
 	<!-- This part of the page represents the maze -->
 	<div id="maze">
 		<div id="start">S</div>
@@ -19,10 +19,15 @@
 		<div class="boundary"></div>
 		<div id="end">E</div>
 	</div>
-	
+
 	<p>
-		The object of this game is to guide the mouse cursor through the start area and get to the end area.  Be sure to avoid the walls:
+		The object of this game is to guide the mouse cursor through the start area and get to the end area. Be sure to
+		avoid the walls:
 	</p>
-	
-	<div class="boundary example"></div>
+
+	<div id="container">
+		<button id="restart">Refaire</button>
+
+	</div>
+
 </body>

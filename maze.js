@@ -1,27 +1,39 @@
-var b = document.getElementsByClassName("boundary");
-var s = document.getElementById("start");
-var e = document.getElementById("end");
+var boundaries = document.getElementsByClassName("boundary");
+var debut = document.getElementById("start");
+var fin = document.getElementById("end");
 var status = document.getElementById("status");
-var win = true;
+var refair = document.getElementById("restart");
+var i = 0;
 
-  s.addEventListener("mouseover", function() {
-    document.getElementById("status").innerHTML = "Move your mouse over the S to begin";
-    for (var i = 0; i < b.length; i++) {
-      b[i].addEventListener("mouseover", function() {
-        win = false;
-        this.style.background = "red";
-        document.getElementById("status").innerHTML = "YOU LOSE!"
-        stopPropagation();
+  debut.addEventListener("mouseover", function() {
+    debut.style.background = "#eeeeee";
+    document.getElementById("status").innerHTML = "Glissez la souris de S vers E sans toucher les bordures";
+    while (i < boundaries.length) {
+      boundaries[i].addEventListener("mouseover", function() {
+        for(var j = 0; j < boundaries.length; j++){
+          boundaries[j].style.background = "red";
+        }
+        document.getElementById("status").innerHTML = "Vous avez Perdue!";
       });
-      this.style.background = "#eeeeee";
+      i++;
     }
-    
   });
 
-e.addEventListener("mouseover", function() {
-  if (win == true) {
-    document.getElementById("status").innerHTML = "YOU WIN!";
-    this.style.background = "#eeeeee";
+fin.addEventListener("mouseover", function() {
+  if (document.getElementById("status").innerHTML != "Vous avez Perdue!") {
+    document.getElementById("status").innerHTML = "Vous avez gagne!";
+    alert('Congratulation!');
+    fin.style.background = "#eeeeee";
+    preventDefault();
   }
-  win = true;
 });
+
+refair.addEventListener("click", function(){
+  document.getElementById("status").innerHTML = 'Glissez la souris de "S" vers "E" sans toucher les bordures';
+  for (var i = 0; i < boundaries.length; i++) {
+      boundaries[i].style.background = "#eeeeee";
+    }
+}
+)
+
+
