@@ -7,14 +7,18 @@ function node(word) {
     let co = 0
     args.forEach(x => {
         fs.readFile(x, function (err, data) {
-            if (err) throw err;
-            if (data.indexOf(word) >= 0) {
-                console.log('Found in: ' + x)
-            } else {
+            if (err) {
+                console.log("Le dossier '" + x + "' n'existe pas.")
                 co++
-            }
-            if (co == args.length) {
-                console.log("NONE")
+            } else {
+                if (data.indexOf(word) >= 0) {
+                    console.log('Found in: ' + x)
+                } else {
+                    co++
+                }
+                if (co == args.length) {
+                    console.log("NONE")
+                }
             }
         });
     });
