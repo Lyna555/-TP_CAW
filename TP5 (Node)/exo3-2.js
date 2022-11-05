@@ -48,17 +48,10 @@ function node(word) {
                     }
                     if(cp==tab.length){
                         e.push(args[i])
+                    }else{
+                        t.push(args[i])
                     }
                 }
-
-                tab.forEach(file => {
-                    for (let i = 0; i < args.length; i++) {
-                        if (args[i]==file) {
-                            t.push(file)
-                        }
-                    }
-                })
-
 
                 t.forEach(file => {
                     fs.readFile(`${args[0]}/${file}`, function (err, data) {
