@@ -81,8 +81,3 @@ function node(word) {
 }
 
 node(arg[2])
-
-
-
-
-
