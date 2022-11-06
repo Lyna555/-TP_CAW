@@ -4,6 +4,7 @@ var arg = process.argv
 var args = arg.slice(3)
 
 function node(word) {
+    const reg = new RegExp(word,'i')
     let co = 0
     let d = 0
     let t = []
@@ -17,7 +18,7 @@ function node(word) {
                 if (err) {
                     console.log("Le fichier '" + file + "' n'existe pas.")
                 } else {
-                    if (data.indexOf(word) >= 0) {
+                    if (reg.test(data)) {
                         console.log('Found in: ' + file)
                     } else {
                         d++
@@ -59,7 +60,7 @@ function node(word) {
                             console.log("Le fichier '" + file + "' n'existe pas.")
                             co++
                         } else {
-                            if (data.indexOf(word) >= 0) {
+                            if (reg.test(data)) {
                                 console.log('Found in: ' + file)
                             } else {
                                 co++
