@@ -1,5 +1,4 @@
-
-import fs ,{readFile} from "fs";
+const fs = require('fs')
 
 var arg = process.argv
 var args = arg.slice(3)
