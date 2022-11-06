@@ -9,7 +9,6 @@ function node(word) {
     let t = []
     let tab = []
     let e = []
-    let cp
 
     if (arg[3].match('.txt')) {
         args.forEach(file => {
@@ -40,14 +39,11 @@ function node(word) {
                 }
 
                 for(let i = 1; i< args.length; i++){
-                    cp = 0
                     for(let j = 0; j< tab.length; j++){
                         if(args[i]!=tab[j]){
                             e.push(args[i])
-
                         }else{
                             t.push(args[i])
-                            
                         }
                     }
                 }
