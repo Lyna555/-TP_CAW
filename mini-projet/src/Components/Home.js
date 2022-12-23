@@ -14,11 +14,11 @@ export default function Home() {
                 <div className='heady'>
                     <div className='head1'>
                         <img src={logo} alt="logo" />
-                        <Link to='/'>MyBlogger</Link>
+                        <Link id='logo' style={{color:"#ff5050",textDecoration: 'none',fontSize: 30, fontWeight: "bold"}} to='/'>MyBlogger</Link>
                     </div>
                     <div className='head2'>
-                        <Link to='/Contacts'><img src={contact} alt="blogger" /> Contacts</Link>
-                        <Link to='/Blogs'><img src={blog} alt="blogger" /> Blogs</Link>
+                        <Link className='link' style={{color:"black",textDecoration: 'none',fontSize: 20, fontWeight: "bold"}} to='/Contacts'><img src={contact} alt="blogger" /> Contacts</Link>
+                        <Link className='link' style={{color:"black",textDecoration: 'none',fontSize: 20, fontWeight: "bold"}} to='/Blogs'><img src={blog} alt="blogger" /> Blogs</Link>
                     </div>
                 </div>
             </nav>
