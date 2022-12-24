@@ -82,6 +82,24 @@ main{
   color: white;
 }
 
+.hide {
+  background-color: #e76d5d;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.hide:hover {
+  background-color: #b14125;
+  color: white;
+}
+
 label{
   font-weight: bold;
 }
