@@ -13,7 +13,7 @@ export default function Home() {
             <nav>
                 <div className='heady'>
                     <div className='head1'>
-                        <Link id='logo' style={{}} to='/'>DouLy</Link>
+                        <Link id='logo' to='/'>DouLy</Link>
                     </div>
                     <div className='head2'>
                         <Link className='link' to='/Contacts'><img src={contact} alt="blogger" /> Contacts</Link>
