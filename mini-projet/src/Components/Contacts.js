@@ -1,22 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
+import {myContact} from './myContacts'
 
 export default function Contacts() {
-  const [myContacts, setMyContacts] = useState([
-    {
-      id: 1,
-      name: "Douaa",
-      phone_number: "0779678196",
-      email: "douaa@gmain.com"
-    },
-
-    {
-      id: 2,
-      name: "Batoul",
-      phone_number: "0779678196",
-      email: "batoul@gmain.com"
-    },
-  ])
+  const [myContacts, setMyContacts] = useState(myContact)
 
   const [inputs, setInputs] = useState({
     id: 0,

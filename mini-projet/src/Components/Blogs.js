@@ -1,21 +1,8 @@
 import React, { useState } from 'react'
+import {MyBlog} from './MyBlogs'
 
 export default function Blogs() {
-  const [myBlogs, setMyBlogs] = useState([
-    {
-      id: 1,
-      subject: "Football",
-      description: "FIFA 2022 Championships held in Qatar",
-      date: "2022-12-23"
-    },
-
-    {
-      id: 2,
-      subject: "Gym",
-      description: "I went to the gym",
-      date: "2022-11-20"
-    },
-  ])
+  const [myBlogs, setMyBlogs] = useState(MyBlog)
 
   const [inputs, setInputs] = useState({
     id: 0,
