@@ -22,7 +22,7 @@ export default function Home() {
                 </div>
             </nav>
             <Routes>
-                <Route path='/' element={<Main/>}></Route>
+                <Route path='/' element={<Main />}></Route>
                 <Route path='/Contacts' element={<Contacts />}></Route>
                 <Route path='/Blogs' element={<Blogs />}></Route>
             </Routes>

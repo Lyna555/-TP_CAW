@@ -1,15 +1,15 @@
-export const myContact = [
+export const MyContact = [
     {
         id: 1,
         name: "Douaa",
-        phone_number: "0779678196",
+        phone_number: "0776138631",
         email: "douaa@gmail.com"
     },
 
     {
         id: 2,
-        name: "Batoul",
+        name: "Lyna",
         phone_number: "0558061851",
-        email: "batoul@gmail.com"
+        email: "lyna@gmail.com"
     },
 ]
