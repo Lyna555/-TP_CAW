@@ -19,6 +19,7 @@ export default function Home() {
                         <Link className='link' to='/Contacts'><img src={contact} alt="blogger" /> Contacts</Link>
                         <Link className='link' to='/Blogs'><img src={blog} alt="blogger" /> Blogs</Link>
                     </div>
+
                 </div>
             </nav>
             <Routes>

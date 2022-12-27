@@ -14,10 +14,17 @@ export default function Contacts() {
 
   const [showAdd, setShowAdd] = useState(false)
   const [showTable, setShowTable] = useState(false)
+  const [error, setError] = useState(false)
 
   function handleSubmit(e) {
     e.preventDefault()
-    setMyContacts([...myContacts, inputs])
+    if (inputs.name === "" || inputs.phone_number === "" || inputs.email === "") {
+      setError(true)
+    } else {
+      setMyContacts([...myContacts, inputs])
+      setShowAdd(false)
+      setShowTable(true)
+    }
   }
 
   return (
@@ -25,18 +32,25 @@ export default function Contacts() {
       <div className='row'>
         <h1>Contacts</h1>
         <div className='buttons'>
-          {!showAdd ? <button className='add' onClick={() => { setShowAdd(!showAdd); setShowTable(false) }}>Create Contact</button> : <button className='hide' onClick={() => setShowAdd(!showAdd)}>Hide Create Contact</button>}
           {!showTable ? <button className='add' onClick={() => { setShowTable(!showTable); setShowAdd(false) }}>Display Contacts</button> : <button className='hide' onClick={() => setShowTable(!showTable)}>Hide Display Contacts</button>}
+          {!showAdd ? <button className='add' onClick={() => { setShowAdd(!showAdd); setShowTable(false) }}>Create Contact</button> : <button className='hide' onClick={() => setShowAdd(!showAdd)}>Hide Create Contact</button>}
         </div>
       </div>
 
+      {showAdd || showTable ? null :
+        <div className='cloud'>
+          <p className='main2'>You can click on Display Contacts to see all your contacts<br></br>or on Create Contact to add a new contact</p>
+        </div>
+      }
+
       {!showAdd ? null : <div>
         <form onSubmit={handleSubmit}>
+          {!error ? null : <p className='error'>Empty Fields!</p>}
           <label>Name</label>
-          <input type="text" placeholder="Enter Contact's Name" onChange={(e) => { setInputs({ id: myContacts[myContacts.length - 1].id + 1 }); setInputs(prevState => ({ ...prevState, name: e.target.value })) }} />
+          <input type="text" placeholder="Enter Contact's Name" onChange={(e) => { setInputs({ id: myContacts[myContacts.length - 1].id + 1 }); setInputs(prevState => ({ ...prevState, name: e.target.value, phone_number: "", email: "" })) }} />
           <br />
           <label>Phone Number</label>
-          <input type="text" placeholder="Enter Contact's Phone Number" onChange={(e) => { setInputs(prevState => ({ ...prevState, phone_number: e.target.value })) }} />
+          <input type="text" placeholder="Enter Contact's Phone Number" onChange={(e) => { setInputs(prevState => ({ ...prevState, phone_number: e.target.value, email: "" })) }} />
           <br />
           <label>Email</label>
           <input type="text" placeholder="Enter Contact's Email" onChange={(e) => { setInputs(prevState => ({ ...prevState, email: e.target.value })) }} />
