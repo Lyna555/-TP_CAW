@@ -106,16 +106,18 @@ form {
   background-color: rgba(255, 255, 255, 0.699);
   padding: 30px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .comment-form{
   background-color: transparent;
   padding: 10px;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 94%;
 }
 
 .add {
@@ -195,7 +197,7 @@ label {
 table {
   font-family: sans-serif;
   border-collapse: collapse;
-  width: 90%;
+  width: 80%;
 }
 
 table td,
@@ -221,17 +223,20 @@ table th {
 input[type=text],
 input[type=date],
 select {
-  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
+  width: 100%;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
 }
 
+.comment-form input{
+  width: 70%;
+}
+
 input[type=submit] {
-  width: 100%;
   background-color: #278f86;
   color: white;
   padding: 14px 20px;
@@ -270,6 +275,5 @@ input[type=submit]:hover {
 
 .com{
   text-align: left;
-  border-bottom: 1px solid rgb(199, 199, 199);
   font-size: 15px;
 }

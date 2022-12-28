@@ -45,21 +45,23 @@ export default function Blogs() {
         </div>
       }
 
-      {!showAdd ? null : <div>
-        <form onSubmit={handleSubmit}>
-          {!error ? null : <p className='error'>Empty Fields!</p>}
-          <label>Subject</label>
-          <input type="text" placeholder='Enter subject' onChange={(e) => { setInputs({ id: myBlogs[myBlogs.length - 1].id + 1 }); setInputs(prevState => ({ ...prevState, subject: e.target.value, description: "", date: "" })) }} />
-          <br />
-          <label>Description</label>
-          <input type="text" placeholder='Enter description' onChange={(e) => { setInputs(prevState => ({ ...prevState, description: e.target.value, date: "" })) }} />
-          <br />
-          <label>Date</label>
-          <input type="date" defaultValue="Enter Date" onChange={(e) => { setInputs(prevState => ({ ...prevState, date: e.target.value })) }} />
-          <br />
-          <input type="submit" value="Submit" />
-        </form>
-      </div>}
+      {!showAdd ? null :
+        <div>
+          <form onSubmit={handleSubmit}>
+            {!error ? null : <p className='error'>Empty Fields!</p>}
+            <label>Subject</label>
+            <input required type="text" placeholder='Enter subject' onChange={(e) => { setInputs({ id: myBlogs[myBlogs.length - 1].id + 1 }); setInputs(prevState => ({ ...prevState, subject: e.target.value, description: "", date: "" })) }} />
+            <br />
+            <label>Description</label>
+            <input required type="text" placeholder='Enter description' onChange={(e) => { setInputs(prevState => ({ ...prevState, description: e.target.value, date: "" })) }} />
+            <br />
+            <label>Date</label>
+            <input required type="date" defaultValue="Enter Date" onChange={(e) => { setInputs(prevState => ({ ...prevState, date: e.target.value })) }} />
+            <br />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      }
 
       {!showTable ? null :
         <table>
@@ -72,14 +74,14 @@ export default function Blogs() {
               <th>Comments</th>
             </tr>
             {
-              myBlogs.map( (blog,i) => {
+              myBlogs.map((blog, i) => {
                 return (
                   <tr key={blog.id}>
                     <td>{blog.subject}</td>
                     <td>{blog.description}</td>
                     <td>{blog.date}</td>
                     <td><LikeBtn /></td>
-                    <td><Comments/></td>
+                    <td><Comments /></td>
                   </tr>
                 )
               })

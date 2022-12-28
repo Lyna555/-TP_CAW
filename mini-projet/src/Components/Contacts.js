@@ -14,17 +14,12 @@ export default function Contacts() {
 
   const [showAdd, setShowAdd] = useState(false)
   const [showTable, setShowTable] = useState(false)
-  const [error, setError] = useState(false)
 
   function handleSubmit(e) {
     e.preventDefault()
-    if (inputs.name === "" || inputs.phone_number === "" || inputs.email === "") {
-      setError(true)
-    } else {
-      setMyContacts([...myContacts, inputs])
-      setShowAdd(false)
-      setShowTable(true)
-    }
+    setMyContacts([...myContacts, inputs])
+    setShowAdd(false)
+    setShowTable(true)
   }
 
   return (
@@ -43,42 +38,44 @@ export default function Contacts() {
         </div>
       }
 
-      {!showAdd ? null : <div>
-        <form onSubmit={handleSubmit}>
-          {!error ? null : <p className='error'>Empty Fields!</p>}
-          <label>Name</label>
-          <input type="text" placeholder="Enter Contact's Name" onChange={(e) => { setInputs({ id: myContacts[myContacts.length - 1].id + 1 }); setInputs(prevState => ({ ...prevState, name: e.target.value, phone_number: "", email: "" })) }} />
-          <br />
-          <label>Phone Number</label>
-          <input type="text" placeholder="Enter Contact's Phone Number" onChange={(e) => { setInputs(prevState => ({ ...prevState, phone_number: e.target.value, email: "" })) }} />
-          <br />
-          <label>Email</label>
-          <input type="text" placeholder="Enter Contact's Email" onChange={(e) => { setInputs(prevState => ({ ...prevState, email: e.target.value })) }} />
-          <br />
-          <input type="submit" value="Submit" />
-        </form>
-      </div>}
-
-      {!showTable ? null :
-        <table>
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <th>Phone Number</th>
-              <th>Email</th>
-            </tr>
-            {myContacts.map(contact => {
-              return (
-                <tr key={contact.id}>
-                  <td>{contact.name}</td>
-                  <td>{contact.phone_number}</td>
-                  <td>{contact.email}</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
+      {!showAdd ? null :
+        <div>
+          <form onSubmit={handleSubmit}>
+            <label>Name</label>
+            <input required type="text" placeholder="Enter Contact's Name" onChange={(e) => { setInputs({ id: myContacts[myContacts.length - 1].id + 1 }); setInputs(prevState => ({ ...prevState, name: e.target.value, phone_number: "", email: "" })) }} />
+            <br />
+            <label>Phone Number</label>
+            <input required type="text" placeholder="Enter Contact's Phone Number" onChange={(e) => { setInputs(prevState => ({ ...prevState, phone_number: e.target.value, email: "" })) }} />
+            <br />
+            <label>Email</label>
+            <input required type="text" placeholder="Enter Contact's Email" onChange={(e) => { setInputs(prevState => ({ ...prevState, email: e.target.value })) }} />
+            <br />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
       }
-    </div>
+
+      {
+        !showTable ? null :
+          <table>
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+              </tr>
+              {myContacts.map(contact => {
+                return (
+                  <tr key={contact.id}>
+                    <td>{contact.name}</td>
+                    <td>{contact.phone_number}</td>
+                    <td>{contact.email}</td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+      }
+    </div >
   )
 }
