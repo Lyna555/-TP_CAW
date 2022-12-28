@@ -14,6 +14,9 @@ export default function Contacts() {
 
   const [showAdd, setShowAdd] = useState(false)
   const [showTable, setShowTable] = useState(false)
+  const [search, setSearch] = useState("")
+  const [option, setOption] = useState("Alphabetical Order")
+  const alphabet_letter = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -26,6 +29,22 @@ export default function Contacts() {
     <div className='tab'>
       <div className='row'>
         <h1>Contacts</h1>
+        {!showTable ? null :
+          <form className='search'>
+            <label>Filter with:</label>
+            <select onChange={(e) => { setOption(e.target.value) }}>
+              <option>Alphabetical Order</option>
+              <option>Name</option>
+              <option>Phone Number</option>
+              <option>Email</option>
+            </select>
+            {option === "Name" || option === "Phone Number" || option === "Email" ? <input type="search" placeholder='Search...' onChange={(e) => setSearch(e.target.value)} /> :
+              <select onChange={(e) => { setSearch(e.target.value) }}>
+                <option>Choose a letter</option>
+                {alphabet_letter.map(alphabet => <option>{alphabet}</option>)}
+              </select>}
+          </form>
+        }
         <div className='buttons'>
           {!showTable ? <button className='add' onClick={() => { setShowTable(!showTable); setShowAdd(false) }}>Display Contacts</button> : <button className='hide' onClick={() => setShowTable(!showTable)}>Hide Display Contacts</button>}
           {!showAdd ? <button className='add' onClick={() => { setShowAdd(!showAdd); setShowTable(false) }}>Create Contact</button> : <button className='hide' onClick={() => setShowAdd(!showAdd)}>Hide Create Contact</button>}
@@ -65,14 +84,60 @@ export default function Contacts() {
                 <th>Email</th>
               </tr>
               {myContacts.map(contact => {
-                return (
-                  <tr key={contact.id}>
-                    <td>{contact.name}</td>
-                    <td>{contact.phone_number}</td>
-                    <td>{contact.email}</td>
-                  </tr>
-                )
-              })}
+                if (search === "" || search === "Choose a letter") {
+                  return (
+                    <tr key={contact.id}>
+                      <td>{contact.name}</td>
+                      <td>{contact.phone_number}</td>
+                      <td>{contact.email}</td>
+                    </tr>
+                  )
+                } else {
+                  if (option === "Name") {
+                    if (contact.name.startsWith(search)) {
+                      return (
+                        <tr key={contact.id}>
+                          <td>{contact.name}</td>
+                          <td>{contact.phone_number}</td>
+                          <td>{contact.email}</td>
+                        </tr>
+                      )
+                    }
+                  } else if (option === "Phone Number") {
+                    if (contact.phone_number.startsWith(search)) {
+                      return (
+                        <tr key={contact.id}>
+                          <td>{contact.name}</td>
+                          <td>{contact.phone_number}</td>
+                          <td>{contact.email}</td>
+                        </tr>
+                      )
+                    }
+                  } else if (option === "Email") {
+                    if (contact.email.match(search)) {
+                      return (
+                        <tr key={contact.id}>
+                          <td>{contact.name}</td>
+                          <td>{contact.phone_number}</td>
+                          <td>{contact.email}</td>
+                        </tr>
+                      )
+                    }
+                  } else {
+                    if (contact.name.startsWith(search)) {
+                      return (
+                        <tr key={contact.id}>
+                          <td>{contact.name}</td>
+                          <td>{contact.phone_number}</td>
+                          <td>{contact.email}</td>
+                        </tr>
+                      )
+                    }
+                  }
+                }
+                return ""
+              })
+              }
             </tbody>
           </table>
       }

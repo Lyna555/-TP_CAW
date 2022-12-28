@@ -277,3 +277,27 @@ input[type=submit]:hover {
   text-align: left;
   font-size: 15px;
 }
+
+.search{
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  width: 43%;
+}
+
+.search select{
+  width: 30%;
+  height: 28px;
+  padding: 0;
+}
+
+.search input{
+  border-radius: 10px;
+  border: 1px solid rgb(138, 138, 138);
+  padding: 5px;
+}
+
+.search .blog-date{
+  width: 30%;
+}
