@@ -1,4 +1,4 @@
-Membres du binomes:
+Membres du binômes :
 - Boughaba Lina.
 - Bousseboua Douaa.
 
