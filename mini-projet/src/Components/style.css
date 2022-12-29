@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
+/*Home*/
+
 * {
   font-family: sans-serif;
 }
@@ -64,6 +66,8 @@ nav {
   background-color: rgba(221, 221, 221, 0.438);
 }
 
+/* Main */
+
 main {
   display: flex;
   flex-direction: column;
@@ -80,6 +84,7 @@ main {
 main h1 {
   font-family: 'Dancing Script', cursive;
   font-size: 50px;
+  color: #bd8282;
 }
 
 .row {
@@ -102,24 +107,6 @@ button {
   gap: 20px;
 }
 
-form {
-  background-color: rgba(255, 255, 255, 0.699);
-  padding: 30px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.comment-form{
-  background-color: transparent;
-  padding: 10px;
-  border-radius: 10px;
-  width: 94%;
-}
-
 .add {
   background-color: #278f86;
   border: none;
@@ -136,13 +123,6 @@ form {
 .add:hover {
   background-color: #36837c;
   color: white;
-}
-
-.error {
-  padding: 10px 20px;
-  border: 1px solid rgb(223, 74, 74);
-  background-color: rgb(238, 153, 153);
-  border-radius: 5px;
 }
 
 .hide {
@@ -163,6 +143,51 @@ form {
   color: white;
 }
 
+/* Contacts and Blogs form*/
+
+form {
+  background-color: rgba(255, 255, 255, 0.699);
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type=text],
+input[type=date],
+select {
+  padding: 12px 20px;
+  margin: 8px 0;
+  width: 100%;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  background-color: #278f86;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #2b7a74;
+}
+
+/* Contacts and Blogs main content */
+
 .cloud {
   height: 50vh;
   width: 100%;
@@ -173,13 +198,12 @@ form {
 
 .main2 {
   font-family: "Dancing Script";
-  font-size: 25px;
+  font-size: 40px;
+  color: #bd8282;
   font-weight: bold;
 }
 
-label {
-  font-weight: bold;
-}
+/* Contacts and Blogs table */
 
 .tab {
   display: flex;
@@ -220,35 +244,7 @@ table th {
   text-align: center;
 }
 
-input[type=text],
-input[type=date],
-select {
-  padding: 12px 20px;
-  margin: 8px 0;
-  width: 100%;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.comment-form input{
-  width: 70%;
-}
-
-input[type=submit] {
-  background-color: #278f86;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #2b7a74;
-}
+/* Blog's like */
 
 .like {
   color: #659e99;
@@ -262,7 +258,20 @@ input[type=submit]:hover {
   font-size: 18px;
 }
 
-.comment{
+/* Blog's comment */
+
+.comment-form {
+  background-color: transparent;
+  padding: 10px;
+  border-radius: 10px;
+  width: 94%;
+}
+
+.comment-form input {
+  width: 70%;
+}
+
+.comment {
   color: #659e99;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border: 2px solid #319b92;
@@ -273,31 +282,39 @@ input[type=submit]:hover {
   font-size: 18px;
 }
 
-.com{
+.com {
   text-align: left;
   font-size: 15px;
 }
 
-.search{
+/* Contact's and Blog's search */
+
+.search {
   background-color: transparent;
   display: flex;
   flex-direction: row;
   gap: 5px;
   width: 43%;
+  padding: 0;
 }
 
-.search select{
+.search select {
   width: 30%;
   height: 28px;
   padding: 0;
 }
 
-.search input{
+.search input {
   border-radius: 10px;
   border: 1px solid rgb(138, 138, 138);
   padding: 5px;
 }
 
-.search .blog-date{
+.search .blog-date {
   width: 30%;
+}
+
+.between {
+  display: flex;
+  gap: 10px;
 }

@@ -21,7 +21,7 @@ export default function Comments() {
                 !show ? null :
                     <form className="comment-form" onSubmit={handle}>
                         <label>Name</label>
-                        <input required type="text" placeholder="Enter your name" onChange={(e) => { setInput(prevState => ({ ...prevState, name: e.target.value, comment:"" })) }} />
+                        <input required type="text" placeholder="Enter your name" onChange={(e) => { setInput(prevState => ({ ...prevState, name: e.target.value, comment: "" })) }} />
                         <label>Comment</label>
                         <input required type="text" placeholder="Enter your comment" onChange={(e) => { setInput(prevState => ({ ...prevState, comment: e.target.value })) }} />
                         <input type="submit" value="Submit" />

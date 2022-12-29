@@ -16,7 +16,7 @@ export default function Contacts() {
   const [showTable, setShowTable] = useState(false)
   const [search, setSearch] = useState("")
   const [option, setOption] = useState("Alphabetical Order")
-  const alphabet_letter = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+  const alphabet_letter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -53,7 +53,7 @@ export default function Contacts() {
 
       {showAdd || showTable ? null :
         <div className='cloud'>
-          <p className='main2'>You can click on Display Contacts to see all your contacts<br></br>or on Create Contact to add a new contact</p>
+          <p className='main2'>Click on Display Contacts to see your contacts<br></br>or click on Create Contact to add a new contact</p>
         </div>
       }
 

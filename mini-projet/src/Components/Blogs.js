@@ -45,8 +45,14 @@ export default function Blogs() {
               <option>After</option>
               <option>Between</option>
             </select>
-            <input className='blog-date' type="date" onChange={(e) => { setDate1(e.target.value) }} />
-            {option === "Between" ? <input className='blog-date' type="date" onChange={(e) => { setDate2(e.target.value) }} /> : null}
+            {option === "Between" ?
+              <div className='between'>
+                <input required type="date" onChange={(e) => { setDate1(e.target.value) }} />
+                <input required type="date" onChange={(e) => { setDate2(e.target.value) }} />
+              </div> :
+              <input required className='blog-date' type="date" onChange={(e) => { setDate1(e.target.value) }} />
+            }
+
           </form>
         }
 
@@ -58,7 +64,7 @@ export default function Blogs() {
 
       {showAdd || showTable ? null :
         <div className='cloud'>
-          <p className='main2'>You can click on Display Blogs to see all your blogss<br></br>or on Create Blog to add a new Blog</p>
+          <p className='main2'>Click on Display Blogs to see your blogs<br></br>or click on Create Blog to add a new Blog</p>
         </div>
       }
 
