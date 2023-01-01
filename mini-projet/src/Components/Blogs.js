@@ -64,7 +64,7 @@ export default function Blogs() {
 
       {showAdd || showTable ? null :
         <div className='cloud'>
-          <p className='main2'>Click on Display Blogs to see your blogs<br></br>or click on Create Blog to add a new Blog</p>
+          <p className='main2'>Click on Display Blogs to see your blogs<br></br>or click on Create Blog to add a new blog</p>
         </div>
       }
 

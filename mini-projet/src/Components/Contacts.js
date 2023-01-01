@@ -38,11 +38,13 @@ export default function Contacts() {
               <option>Phone Number</option>
               <option>Email</option>
             </select>
-            {option === "Name" || option === "Phone Number" || option === "Email" ? <input type="search" placeholder='Search...' onChange={(e) => setSearch(e.target.value)} /> :
+            {option === "Name" || option === "Phone Number" || option === "Email" ?
+              <input type="search" placeholder='Search...' onChange={(e) => setSearch(e.target.value)} /> :
               <select onChange={(e) => { setSearch(e.target.value) }}>
                 <option>Choose a letter</option>
                 {alphabet_letter.map(alphabet => <option>{alphabet}</option>)}
-              </select>}
+              </select>
+            }
           </form>
         }
         <div className='buttons'>
@@ -94,7 +96,7 @@ export default function Contacts() {
                   )
                 } else {
                   if (option === "Name") {
-                    if (contact.name.startsWith(search)) {
+                    if (contact.name.toUpperCase().startsWith(search.toUpperCase())) {
                       return (
                         <tr key={contact.id}>
                           <td>{contact.name}</td>
@@ -124,7 +126,7 @@ export default function Contacts() {
                       )
                     }
                   } else {
-                    if (contact.name.startsWith(search)) {
+                    if (contact.name.toUpperCase().startsWith(search)) {
                       return (
                         <tr key={contact.id}>
                           <td>{contact.name}</td>

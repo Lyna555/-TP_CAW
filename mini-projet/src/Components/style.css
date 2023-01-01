@@ -221,7 +221,7 @@ input[type=submit]:hover {
 table {
   font-family: sans-serif;
   border-collapse: collapse;
-  width: 80%;
+  width: 50%;
 }
 
 table td,
