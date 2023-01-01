@@ -16,7 +16,7 @@ export default function Contacts() {
   const [showTable, setShowTable] = useState(false)
   const [search, setSearch] = useState("")
   const [option, setOption] = useState("Alphabetical Order")
-  const alphabet_letter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+  const alphabet_letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -42,7 +42,7 @@ export default function Contacts() {
               <input type="search" placeholder='Search...' onChange={(e) => setSearch(e.target.value)} /> :
               <select onChange={(e) => { setSearch(e.target.value) }}>
                 <option>Choose a letter</option>
-                {alphabet_letter.map(alphabet => <option>{alphabet}</option>)}
+                {alphabet_letters.map(alphabet => <option>{alphabet}</option>)}
               </select>
             }
           </form>
@@ -76,8 +76,7 @@ export default function Contacts() {
         </div>
       }
 
-      {
-        !showTable ? null :
+      {!showTable ? null :
           <table>
             <tbody>
               <tr>
@@ -137,7 +136,7 @@ export default function Contacts() {
                     }
                   }
                 }
-                return ""
+                return null
               })
               }
             </tbody>

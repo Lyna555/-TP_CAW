@@ -52,7 +52,6 @@ export default function Blogs() {
               </div> :
               <input required className='blog-date' type="date" onChange={(e) => { setDate1(e.target.value) }} />
             }
-
           </form>
         }
 
@@ -149,7 +148,7 @@ export default function Blogs() {
                     )
                   }
                 }
-                return ""
+                return null
               })
             }
           </tbody>
