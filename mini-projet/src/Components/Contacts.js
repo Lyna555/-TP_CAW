@@ -42,7 +42,7 @@ export default function Contacts() {
               <input type="search" placeholder='Search...' onChange={(e) => setSearch(e.target.value)} /> :
               <select onChange={(e) => { setSearch(e.target.value) }}>
                 <option>Choose a letter</option>
-                {alphabet_letters.map(alphabet => <option>{alphabet}</option>)}
+                {alphabet_letters.map((alphabet, i) => <option key={i}>{alphabet}</option>)}
               </select>
             }
           </form>
@@ -77,14 +77,15 @@ export default function Contacts() {
       }
 
       {!showTable ? null :
-          <table>
-            <tbody>
-              <tr>
-                <th>Name</th>
-                <th>Phone Number</th>
-                <th>Email</th>
-              </tr>
-              {myContacts.map(contact => {
+        <table>
+          <tbody>
+            <tr>
+              <th>Name</th>
+              <th>Phone Number</th>
+              <th>Email</th>
+            </tr>
+            {
+              myContacts.map(contact => {
                 if (search === "" || search === "Choose a letter") {
                   return (
                     <tr key={contact.id}>
@@ -95,7 +96,7 @@ export default function Contacts() {
                   )
                 } else {
                   if (option === "Name") {
-                    if (contact.name.toUpperCase().startsWith(search.toUpperCase())) {
+                    if (contact.name.toUpperCase().match(search.toUpperCase())) {
                       return (
                         <tr key={contact.id}>
                           <td>{contact.name}</td>
@@ -105,7 +106,7 @@ export default function Contacts() {
                       )
                     }
                   } else if (option === "Phone Number") {
-                    if (contact.phone_number.startsWith(search)) {
+                    if (contact.phone_number.match(search)) {
                       return (
                         <tr key={contact.id}>
                           <td>{contact.name}</td>
@@ -138,9 +139,9 @@ export default function Contacts() {
                 }
                 return null
               })
-              }
-            </tbody>
-          </table>
+            }
+          </tbody>
+        </table>
       }
     </div >
   )
