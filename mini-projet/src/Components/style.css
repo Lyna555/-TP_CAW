@@ -56,7 +56,7 @@ nav {
   gap: 5px;
   padding: 10px;
   border-radius: 10px;
-  color: black;
+  color: #319b92;
   text-decoration: none;
   font-size: 23px;
   font-weight: bold;
@@ -86,6 +86,8 @@ main h1 {
   font-size: 50px;
   color: #bd8282;
 }
+
+/* Main Bar */
 
 .row {
   margin-top: 80px;
@@ -126,7 +128,7 @@ button {
 }
 
 .hide {
-  background-color: #e76d5d;
+  background-color: #2e6e69;
   border: none;
   color: white;
   padding: 10px 20px;
@@ -139,7 +141,7 @@ button {
 }
 
 .hide:hover {
-  background-color: #b14125;
+  background-color: #2f8079;
   color: white;
 }
 
@@ -296,6 +298,7 @@ table th {
   gap: 5px;
   width: 43%;
   padding: 0;
+  margin-top: 20vh;
 }
 
 .search select {
